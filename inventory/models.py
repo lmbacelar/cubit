@@ -25,6 +25,8 @@ class Item(models.Model):
     description = models.CharField(max_length=255, blank=True, null=True)
     serial_number = models.CharField(max_length=255, blank=True, null=True)
     part_number = models.CharField(max_length=255, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f'{self.reference}: {self.make_model}'
