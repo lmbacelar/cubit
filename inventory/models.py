@@ -17,3 +17,14 @@ class MakeModel(models.Model):
 
     def __str__(self):
         return f'{self.make} {self.model}'.strip()
+
+
+class Item(models.Model):
+    reference = models.CharField(max_length=255, unique=True)
+    make_model = models.ForeignKey(MakeModel, on_delete=models.CASCADE, verbose_name='Make/Model')
+    description = models.CharField(max_length=255, blank=True, null=True)
+    serial_number = models.CharField(max_length=255, blank=True, null=True)
+    part_number = models.CharField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.reference}: {self.make_model}'
