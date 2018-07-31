@@ -1,4 +1,5 @@
 *.swp
+*.swo
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
