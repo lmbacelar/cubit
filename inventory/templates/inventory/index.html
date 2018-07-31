@@ -1,7 +1,7 @@
 {% if latest_item_list %}
     <ul>
     {% for item in latest_item_list %}
-        <li><a href="{% url 'detail' item.id %}">{{ item }}</a></li>
+        <li><a href="{% url 'inventory:detail' item.id %}">{{ item }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
