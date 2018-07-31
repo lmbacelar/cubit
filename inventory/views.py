@@ -1,14 +1,16 @@
-from django.shortcuts import render, get_object_or_404
+from django.views import generic
 
 from .models import Item
 
 
-def index(request):
-    latest_item_list = Item.objects.order_by('-created_at')[:5]
-    context = { 'latest_item_list': latest_item_list }
-    return render(request, 'inventory/index.html', context)
+class IndexView(generic.ListView):
+    template_name = 'inventory/index.html'
+    context_object_name = 'latest_item_list'
+
+    def get_queryset(self):
+        return Item.objects.order_by('-created_at')[:5]
 
 
-def detail(request, item_id):
-    item = get_object_or_404(Item, pk=item_id)
-    return render(request, 'inventory/detail.html', {'item': item})
+class DetailView(generic.DetailView):
+    model = Item
+    template_name = 'inventory/detail.html'
