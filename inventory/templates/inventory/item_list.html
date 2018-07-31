@@ -1,6 +1,6 @@
-{% if latest_item_list %}
+{% if item_list %}
     <ul>
-    {% for item in latest_item_list %}
+    {% for item in item_list %}
         <li><a href="{% url 'inventory:detail' item.id %}">{{ item }}</a></li>
     {% endfor %}
     </ul>
