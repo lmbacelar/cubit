@@ -1,5 +1,4 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import Item
 
@@ -11,4 +10,5 @@ def index(request):
 
 
 def detail(request, item_id):
-    return HttpResponse("You're looking at Item %s." % item_id)
+    item = get_object_or_404(Item, pk=item_id)
+    return render(request, 'inventory/detail.html', {'item': item})
