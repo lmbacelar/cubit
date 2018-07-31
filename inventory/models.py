@@ -16,5 +16,4 @@ class MakeModel(models.Model):
         unique_together = ('make', 'model')
 
     def __str__(self):
-        return f'{self.make} {self.model}'
-
+        return f'{self.make} {self.model}'.strip()
