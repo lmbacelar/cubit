@@ -1,9 +1,13 @@
 from django.shortcuts import render
 from django.views import generic
 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from .models import Make, MakeModel, Item
 
 
+@login_required
 def index(request):
     """View function for home page of site."""
 
@@ -18,10 +22,10 @@ def index(request):
     return render(request, 'index.html', context=context)
 
 
-class ItemListView(generic.ListView):
+class ItemListView(LoginRequiredMixin, generic.ListView):
     model = Item
     paginate_by = 10
 
 
-class ItemDetailView(generic.DetailView):
+class ItemDetailView(LoginRequiredMixin, generic.DetailView):
     model = Item
