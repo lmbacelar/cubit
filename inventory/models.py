@@ -13,6 +13,7 @@ class MakeModel(models.Model):
     name = models.CharField(max_length=255)
 
     class Meta:
+        verbose_name = 'model'
         unique_together = ('make', 'model')
 
     def __str__(self):
