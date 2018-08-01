@@ -1,4 +1,9 @@
-<h2>{{ item }}</h2>
-<p>{{ item.description }}</p>
-<p>{{ item.serial_number }}</p>
-<p>{{ item.part_number }}</p>
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ item.name }}</h1>
+  <p><strong>Reference:</strong> {{ item.reference }}
+  <p><strong>Make/Model:</strong> {{ item.make_model }}
+  <p><strong>P/N:</strong> {{ item.part_number }}</p>
+  <p><strong>S/N:</strong> {{ item.serial_number }}</p>
+{% endblock %}
