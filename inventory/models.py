@@ -28,5 +28,8 @@ class Item(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def name(self):
+        return self.description or self.make_model.name
+
     def __str__(self):
         return f'{self.reference}: {self.make_model}'
