@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Inventory Home</h1>
+  <p>Welcome to <em>Inventory</em>, a website developed by <em>Luis Bacelar</em>!</p>
+
+  <h2>Dynamic content</h2>
+  <p>The inventory has the following record counts:</p>
+  <ul>
+    <li><strong>Makes:</strong> {{ num_makes }}</li>
+    <li><strong>Models:</strong> {{ num_models }}</li>
+    <li><strong>Items:</strong> {{ num_items }}</li>
+  </ul>
+{% endblock %}
