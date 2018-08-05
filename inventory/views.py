@@ -9,7 +9,8 @@ from .models import Make, MakeModel, Item
 
 @login_required
 def index(request):
-    """View function for home page of site."""
+    num_visits = request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits + 1
 
     num_makes = Make.objects.all().count()
     num_models = MakeModel.objects.all().count()
@@ -18,6 +19,7 @@ def index(request):
         'num_makes': num_makes,
         'num_models': num_models,
         'num_items': num_items,
+        'num_visits': num_visits,
     }
     return render(request, 'index.html', context=context)
 
