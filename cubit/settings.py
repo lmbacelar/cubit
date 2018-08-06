@@ -27,7 +27,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 DEBUG = bool(os.environ['DJANGO_DEBUG'])
 
 
-ALLOWED_HOSTS = ['salty-hollows-82883.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['salty-hollows-82883.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
